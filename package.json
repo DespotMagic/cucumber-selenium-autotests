@@ -1,5 +1,16 @@
 {
+  "name": "hellocucumber",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cucumber-js"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "author": "levin-sa",
   "devDependencies": {
-    "@cucumber/cucumber": "^8.0.0-rc.1"
+    "@cucumber/cucumber": "^8.0.0-rc.1",
+    "@types/selenium-webdriver": "*"
   }
 }
