@@ -1,7 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 // import isCI from 'is-ci';
 
-// process.env['--foo'] = 'bar';
+// //process.env['--foo'] = 'bar';
 // process.env['SimpleConsoleFormatter.printEnvelopes'] = 'false';
 
 // if (isCI) {

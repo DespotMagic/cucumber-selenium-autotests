@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf build && tsc && yarn run cucumber-check",
+    "build": "rimraf build && tsc",
     "cucumber-check": "cucumber-js --dry-run -p checkParams",
     "cucumber": "cucumber-js",
     "test-all": "yarn run cucumber",
-    "test-only": "yarn run cucumber --tags @only --format cucumber-console-formatter",
-    "test": "yarn run test-all"
+    "test-only": "yarn run cucumber -p onlyParams",
+    "test": "yarn run test-all",
+    "ci": "yarn run build && yarn run cucumber -p ciParams",
+    "eslint-lint": "eslint ./ --ext .js,.ts --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives",
+    "eslint-fix": "eslint ./ --ext .js,.ts --fix"
   },
   "engines": {
     "node": ">=14"
@@ -21,12 +24,21 @@
     "@cucumber/cucumber": "^8.0.0-rc.1",
     "@cucumber/html-formatter": "^17.0.0",
     "cucumber-console-formatter": "^1.0.0",
+    "expect": "26.6.2",
+    "is-ci": "^3.0.1",
     "rimraf": "^3.0.2",
     "ts-node": "^10.4.0",
     "typescript": "^4.5.4"
   },
   "devDependencies": {
-    "@types/node": "^17.0.5",
-    "@types/selenium-webdriver": "*"
+    "@types/node": "^15.0.0",
+    "@types/selenium-webdriver": "^4.0.16",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "@typescript-eslint/parser": "^5.8.1",
+    "eslint": "^8.5.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^4.0.0",
+    "prettier": "^2.5.1"
   }
 }

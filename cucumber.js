@@ -1,50 +1,51 @@
-// module.exports = {
-//     default: `--format-options '{"snippetInterface": "synchronous"}'`
-// }
-
-var commonParams = [
-    // '--format json:./reports/cucumber-json-reports/report.json',
-
+var commonArrayParams = [
     '--require-module ts-node/register',
     '--require env/set-environment-variables.ts',
     '--require src/**/*.ts',
-    //'--require step_definitions/**/*.ts',
-    //'--require hooks/**/*.ts',
-
-    '--format summary',
-    //'--format rerun:@rerun.txt',
-    //'--format usage:reports/usage.txt',
-    //'--format message:reports/messages.ndjson',
-    //'--format html:reports/report.html',
-    //'--parallel 20',
     '--format-options \'{ "snippetInterface": "synchronous" }\'',
-    '--publish-quiet'
+    '--publish-quiet',
 ];
 
-var checkParams = commonParams.concat([
-    ' --format progress',
-    ' --format progress-bar'
-]);
+var defaultParams = commonArrayParams.concat(['--format progress-bar']).join(' ');
 
-var defaultParams = commonParams.concat([
-    // '--format json:./reports/cucumber-json-reports/report.json',
+var ciParams = commonArrayParams.concat(['--format progress']).join(' ');
 
-    `--format ${process.env.CI || !process.stdout.isTTY ? 'progress' : 'progress-bar'}`,
-    //'--format rerun:@rerun.txt',
-    //'--format usage:reports/usage.txt',
-    //'--format message:reports/messages.ndjson',
-    //'--format html:reports/report.html',
-    //'--parallel 20',
-    '--format-options \'{ "snippetInterface": "synchronous" }\'',
-    '--publish-quiet'
-]);
+var checkParams = commonArrayParams.concat([' --format summary']).join(' ');
+
+var debugParams = commonArrayParams
+    .concat(['--tags @debug', ' --format cucumber-console-formatter'])
+    .join(' ');
+
+var tagOnlyParams = commonArrayParams
+    .concat(['--tags @only', ' --format cucumber-console-formatter'])
+    .join(' ');
+
+var quickRunParams = commonArrayParams
+    .concat([
+        '--format cucumber-console-formatter',
+        '--format-options \'{ "colorsEnabled": false }\'',
+    ])
+    .join(' ');
 
 module.exports = {
-    default: defaultParams.join(' '),
-    checkParams: checkParams.join(' '),
-};
+    default: defaultParams,
 
-// module.exports = {
-//     default:
-//         'features/**/*.feature --require env/set-environment-variables.ts --require world/custom-world.ts --require step-definitions/**/*.ts --require hooks/**/*.ts  --require-module ts-node/register --format-options \'{"snippetInterface": "async-await"}\' --publish-quiet',
-// };
+    ciParams: ciParams,
+
+    checkParams: checkParams,
+
+    debugParams: debugParams,
+
+    onlyParams: tagOnlyParams,
+
+    /**quickRun used in cucumber-quick plugin. See .vscode/settings.json */
+    quickRun: quickRunParams,
+};
+// '--format json:./reports/cucumber-json-reports/report.json',
+//'--require step_definitions/**/*.ts',
+//'--require hooks/**/*.ts',
+//'--format rerun:@rerun.txt',
+//'--format usage:reports/usage.txt',
+//'--format message:reports/messages.ndjson',
+//'--format html:reports/report.html',
+//'--parallel 20',

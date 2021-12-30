@@ -1,5 +1,4 @@
 import { IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
-import { Stream } from 'stream';
 
 //World is an isolated context for each scenario, exposed to the hooks and steps as this, enabling you to set and recall some state across the lifecycle of your scenario.
 
@@ -24,12 +23,11 @@ import { Stream } from 'stream';
 // }
 
 export class CustomWorld extends World {
-
     // driver = new seleniumWebdriver.Builder()
     //     .forBrowser('firefox')
     //     .build()
 
-    //custom
+    //custom fields
     public foo = false;
     public debug = false;
 
@@ -41,7 +39,7 @@ export class CustomWorld extends World {
      */
     constructor(options: IWorldOptions) {
         // needed so `attach`, `log` and `parameters` are properly set
-        super(options)
+        super(options);
     }
 
     // Returns a promise that resolves to the element
@@ -49,7 +47,6 @@ export class CustomWorld extends World {
         //const condition = seleniumWebdriver.until.elementLocated(locator)
         //return await this.driver.wait(condition)
     }
-
 }
 
 setWorldConstructor(CustomWorld);

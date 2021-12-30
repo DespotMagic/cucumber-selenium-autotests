@@ -6,12 +6,13 @@ Feature: Is it Friday yet?
     When I ask whether it's Friday yet
     Then I should be told "Nope"
 
-  @debug
+  @only
   Scenario: Friday is Friday
     Given today is 'Friday'
     When I ask whether it's Friday yet
     Then I should be told "TGIF"
 
+  @debug
   Scenario Outline: Today is or is not Friday
     Given today is "<day>"
     When I ask whether it's Friday yet
