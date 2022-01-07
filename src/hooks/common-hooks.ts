@@ -1,21 +1,25 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import { CustomWorld } from '../world';
-import { Before, BeforeAll, AfterAll } from '@cucumber/cucumber';
+import { Tags } from '../shared/tags';
+import { Before, BeforeAll, AfterAll, After } from '@cucumber/cucumber';
 
-Before({ tags: '@ignore' }, async function () {
+Before({ tags: Tags.ignore }, async function () {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     return 'skipped' as any;
 });
 
-Before({ tags: '@debug' }, async function (this: CustomWorld) {
+Before({ tags: Tags.debug }, async function (this: CustomWorld) {
     this.debug = true;
 });
 
-BeforeAll(async function () {
-    // eslint-disable-next-line no-console
-    console.log('# my hook - Before All');
-});
+/**Before hooks run before the first step of each scenario. */
+Before(async function (this: CustomWorld) {});
 
-AfterAll(async function () {
-    // eslint-disable-next-line no-console
-    console.log('# my hook - After All');
-});
+/**After hooks run after the last step of each scenario, even when the step result is failed, undefined, pending, or skipped. */
+After(async function (this: CustomWorld) {});
+
+/**BeforeAll run before any scenario is run. */
+BeforeAll(async function () {});
+
+/**AfterAll run after all scenarios have been executed. */
+AfterAll(async function () {});

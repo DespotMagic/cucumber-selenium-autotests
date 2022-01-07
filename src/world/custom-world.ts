@@ -1,52 +1,40 @@
-import { IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
+import { createChromeDriver } from '../helpers/drivers/chrome-driver';
+import { Tags } from '../shared/tags';
+import { containTag } from '../helpers/helpers';
+import { After, Before, IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
+import { WebDriver } from 'selenium-webdriver';
 
-//World is an isolated context for each scenario, exposed to the hooks and steps as this, enabling you to set and recall some state across the lifecycle of your scenario.
+type CommonScenarioContext = { [key: string]: string };
 
-//export type MediaType = 'text/plain' | 'image/png' | 'application/json';
-// export type AttachBuffer = (data: Buffer, mediaType: MediaType) => void | Promise<void>;
-// export type AttachStream = (data: Stream, mediaType: MediaType) => void | Promise<void>;
-// export type AttachText = (data: string) => void | Promise<void>;
-// export type AttachStringifiedJson = (
-//     data: string,
-//     mediaType: 'application/json',
-// ) => void | Promise<void>;
-// export type AttachBase64EncodedPng = (data: string, mediaType: 'image/png') => void | Promise<void>;
-// export type AttachFn = AttachBuffer &
-//     AttachStream &
-//     AttachBase64EncodedPng &
-//     AttachStringifiedJson &
-//     AttachText;
+/** World is an isolated context for each scenario, exposed to the hooks and steps as this, enabling you to set and recall some state across the lifecycle of your scenario */
+export class CustomWorld<TScenarioContext = CommonScenarioContext> extends World {
+    driver: WebDriver;
+    scenarioContext: TScenarioContext = <TScenarioContext>{};
 
-// export interface CucumberWorldConstructorParams {
-//     attach: AttachFn;
-//     parameters: { [key: string]: string };
-// }
+    debug = false;
+    tags: string[];
 
-export class CustomWorld extends World {
-    // driver = new seleniumWebdriver.Builder()
-    //     .forBrowser('firefox')
-    //     .build()
-
-    //custom fields
-    public foo = false;
-    public debug = false;
-
-    //public helper: MyHelper = new MyHelper();
-    //public scenarioContext: ScenarioContext = new ScenarioContext();
-
-    /**
-     *
-     */
     constructor(options: IWorldOptions) {
         // needed so `attach`, `log` and `parameters` are properly set
         super(options);
-    }
-
-    // Returns a promise that resolves to the element
-    async waitForElement(locator: string) {
-        //const condition = seleniumWebdriver.until.elementLocated(locator)
-        //return await this.driver.wait(condition)
+        this.scenarioContext = <TScenarioContext>{};
     }
 }
+
+Before<CustomWorld>(async function (this, arg) {
+    if (!containTag(arg, Tags.dontCreateBrowser)) {
+        if (!this.driver) {
+            this.driver = await createChromeDriver();
+        }
+        //OR clear Cookies And Storages;
+    }
+});
+
+After<CustomWorld>(async function (this) {
+    if (this.driver) {
+        await this.driver.close();
+        await this.driver.quit();
+    }
+});
 
 setWorldConstructor(CustomWorld);

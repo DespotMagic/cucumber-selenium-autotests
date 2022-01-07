@@ -39,20 +39,20 @@
             }
         ],
         "no-console": [
-            "error"
+            "warn"
         ],
         "no-debugger": [
-            "error"
+            "warn"
         ],
         "no-multiple-empty-lines": [
-            "error",
+            "warn",
             {
-                "max": 1,
+                "max": 2,
                 "maxEOF": 1
             }
         ],
         "semi": [
-            "error",
+            "warn",
             "always"
         ],
         "import/order": [
