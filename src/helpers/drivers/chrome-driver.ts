@@ -12,7 +12,7 @@ export async function createChromeDriver() {
         args: ['start-maximized', 'disable-extensions'],
     });
 
-    //capabilities.set('path', chromedriverPath);
+    capabilities.set('path', chromedriverPath);
     const driver = await new Builder().withCapabilities(capabilities).build();
 
     await driver.manage().window().maximize();

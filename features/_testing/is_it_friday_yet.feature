@@ -3,20 +3,20 @@ Feature: Is it Friday yet?
 
   @dontCreateBrowser
   Scenario: Sunday isn't Friday
-    Given today is 'Sunday'
-    When I ask whether it's Friday yet
+    Given Today is "Sunday"
+    When I ask whether it is Friday yet
     Then I should be told "Nope"
 
   @only @dontCreateBrowser
   Scenario: Friday is Friday
-    Given today is 'Friday'
-    When I ask whether it's Friday yet
+    Given Today is "Friday"
+    When I ask whether it is Friday yet
     Then I should be told "TGIF"
 
   @debug @dontCreateBrowser
   Scenario Outline: Today is or is not Friday
-    Given today is "<day>"
-    When I ask whether it's Friday yet
+    Given Today is "<day>"
+    When I ask whether it is Friday yet
     Then I should be told "<answer>"
 
     Examples:

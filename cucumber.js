@@ -2,7 +2,7 @@ var commonArrayParams = [
     '--require-module ts-node/register',
     '--require env/set-environment-variables.ts',
     '--require src/**/*.ts',
-    '--format-options \'{ "snippetInterface": "synchronous" }\'',
+    '--format-options \'{ "snippetInterface": "async-await" }\'',
     '--publish-quiet',
 ];
 

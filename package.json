@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf build && tsc",
+    "watch": "rimraf build && tsc --watch",
     "cucumber-check": "cucumber-js --dry-run -p checkParams",
     "test-all": "yarn run cucumber-js",
     "test-only": "yarn run cucumber-js -p onlyParams",

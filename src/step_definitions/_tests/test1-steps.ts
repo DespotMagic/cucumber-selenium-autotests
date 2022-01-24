@@ -14,6 +14,12 @@ When('enter text {string}', async function (this: CustomWorld, searchTerm: strin
     await element.sendKeys(searchTerm);
 });
 
+When('enter text {string} and submit form', async function (this: CustomWorld, searchTerm: string) {
+    const inputElement = await this.driver.findElement(By.name('q'));
+    await inputElement.sendKeys(searchTerm, Key.RETURN);
+    await inputElement.submit();
+});
+
 When('send special key {string}', async function (this: CustomWorld, keyCode: keyof IKey) {
     const key: string = <string>Key[keyCode];
     sleep(1000);
