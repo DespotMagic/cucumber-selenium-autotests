@@ -1,5 +1,5 @@
 import { createChromeDriver } from '../helpers/drivers/chrome-driver';
-import { Tags } from '../shared/tags';
+import { Tags } from '../shared/tags.model';
 import { containTag } from '../helpers/helpers';
 import { After, Before, IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
 import { WebDriver } from 'selenium-webdriver';
