@@ -1,6 +1,5 @@
 var commonArrayParams = [
     '--require-module ts-node/register',
-    '--require env/set-environment-variables.ts',
     '--require src/**/*.ts',
     '--format-options \'{ "snippetInterface": "async-await" }\'',
     '--publish-quiet',
@@ -12,19 +11,12 @@ var ciParams = commonArrayParams.concat(['--format progress']).join(' ');
 
 var checkParams = commonArrayParams.concat([' --format summary']).join(' ');
 
-var debugParams = commonArrayParams
-    .concat(['--tags @debug', ' --format cucumber-console-formatter'])
-    .join(' ');
+var debugParams = commonArrayParams.concat(['--tags @debug', ' --format cucumber-console-formatter']).join(' ');
 
-var tagOnlyParams = commonArrayParams
-    .concat(['--tags @only', ' --format cucumber-console-formatter'])
-    .join(' ');
+var tagOnlyParams = commonArrayParams.concat(['--tags @only', ' --format cucumber-console-formatter']).join(' ');
 
 var quickRunParams = commonArrayParams
-    .concat([
-        '--format cucumber-console-formatter',
-        '--format-options \'{ "colorsEnabled": false }\'',
-    ])
+    .concat(['--format cucumber-console-formatter', '--format-options \'{ "colorsEnabled": false }\''])
     .join(' ');
 
 module.exports = {
@@ -41,6 +33,7 @@ module.exports = {
     /**quickRun used in cucumber-quick plugin. See .vscode/settings.json */
     quickRun: quickRunParams,
 };
+
 // '--format json:./reports/cucumber-json-reports/report.json',
 //'--require step_definitions/**/*.ts',
 //'--require hooks/**/*.ts',

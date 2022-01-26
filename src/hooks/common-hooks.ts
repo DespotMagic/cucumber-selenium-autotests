@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { CustomWorld } from '../world';
-import { Tags } from '../shared/tags.model';
+import { Tags } from '../models/tags.model';
 import { Before, BeforeAll, AfterAll, After } from '@cucumber/cucumber';
 
 Before({ tags: Tags.ignore }, async function () {
