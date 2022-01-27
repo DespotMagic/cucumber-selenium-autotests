@@ -14,7 +14,10 @@
     "eslint-lint": "eslint ./ --ext .js,.ts --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives",
     "eslint-fix": "eslint ./ --ext .js,.ts --fix",
     "test-dev": "set NODE_ENV=dev&& yarn run test-all",
-    "test-qa": "set NODE_ENV=qa&& yarn run test-all"
+    "test-qa": "set NODE_ENV=qa&& yarn run test-all",
+    "report-view_report": "reports/build_in_report.html",
+    "report-generate_report_from_json": "node generateHtmlReport.js",
+    "report-generate_report_from_ndjson": "cat reports/cucumber-messages.ndjson | cucumber-html-formatter > reports/ndjson_reports.html"
   },
   "engines": {
     "node": ">=14"
@@ -24,10 +27,12 @@
   "author": "levin-sa",
   "dependencies": {
     "@cucumber/cucumber": "^8.0.0-rc.1",
-    "@cucumber/html-formatter": "^17.0.0",
+    "@cucumber/html-formatter": "^18.0.0",
+    "cat": "^0.2.0",
     "chromedriver": "^96.0.0",
     "config": "^3.3.7",
     "cucumber-console-formatter": "^1.0.0",
+    "cucumber-html-reporter": "^5.5.0",
     "expect": "26.6.2",
     "is-ci": "^3.0.1",
     "rimraf": "^3.0.2",

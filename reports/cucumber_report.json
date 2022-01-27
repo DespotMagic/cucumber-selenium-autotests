@@ -1,0 +1,428 @@
+[
+  {
+    "description": "  Everybody wants to know when it's Friday",
+    "elements": [
+      {
+        "description": "",
+        "id": "is-it-friday-yet?;friday-is-friday",
+        "keyword": "Scenario",
+        "line": 11,
+        "name": "Friday is Friday",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 375099
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 157800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 12,
+            "name": "Today is \"Friday\"",
+            "match": {
+              "location": "src\\step_definitions\\_tests\\is_it_friday_yet.ts:13"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 295499
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I ask whether it is Friday yet",
+            "match": {
+              "location": "src\\step_definitions\\_tests\\is_it_friday_yet.ts:17"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 277599
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I should be told \"TGIF\"",
+            "match": {
+              "location": "src\\step_definitions\\_tests\\is_it_friday_yet.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1384099
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 216999
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 206500
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only",
+            "line": 10
+          },
+          {
+            "name": "@dontCreateBrowser",
+            "line": 10
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "is-it-friday-yet?",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Is it Friday yet?",
+    "tags": [],
+    "uri": "features\\_testing\\is_it_friday_yet.feature"
+  },
+  {
+    "description": "",
+    "elements": [
+      {
+        "description": "",
+        "id": "login-test-feature;login-test-1",
+        "keyword": "Scenario",
+        "line": 4,
+        "name": "Login test 1",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 426499
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 812469799
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "Opened \"Public\" page",
+            "match": {
+              "location": "src\\step_definitions\\core\\page-steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2821112800
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 6,
+            "name": "nothing",
+            "match": {
+              "location": "src\\step_definitions\\core\\stub-steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 272699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 7,
+            "name": "all ok",
+            "match": {
+              "location": "src\\step_definitions\\core\\stub-steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 352200
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 97300199
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 232200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only",
+            "line": 3
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-test-feature;login-test-2",
+        "keyword": "Scenario",
+        "line": 10,
+        "name": "Login test 2",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1587300
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 666700
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1105832100
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 11,
+            "name": "Opened \"Login\" page",
+            "match": {
+              "location": "src\\step_definitions\\core\\page-steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3249889400
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 12,
+            "name": "Enter text \"user@user.tu\" in the field \"email\"",
+            "match": {
+              "location": "src\\step_definitions\\ui\\text-elements-steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 23102999
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 13,
+            "name": "Enter text \"pa$$word\" in the field \"password-2\"",
+            "match": {
+              "location": "src\\step_definitions\\ui\\text-elements-steps.ts:6"
+            },
+            "result": {
+              "status": "failed",
+              "duration": 71505999,
+              "error_message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[data-at=password-2]\"}\n  (Session info: chrome=97.0.4692.99)\n  (Driver info: chromedriver=96.0.4664.45 (76e4c1bb2ab4671b8beba3444e61c0f17584b2fc-refs/branch-heads/4664@{#947}),platform=Windows NT 10.0.19042 x86_64)\n    at Object.checkLegacyResponse (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\node_modules\\selenium-webdriver\\lib\\error.js:575:15)\n    at parseHttpResponse (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\node_modules\\selenium-webdriver\\lib\\http.js:639:13)\n    at Executor.execute (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\node_modules\\selenium-webdriver\\lib\\http.js:573:28)\n    at processTicksAndRejections (node:internal/process/task_queues:96:5)\n    at async Driver.execute (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\node_modules\\selenium-webdriver\\lib\\webdriver.js:735:17)\n    at async enterTextToField (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\src\\step_definitions\\ui\\text-elements-steps.ts:17:25)\n    at async CustomWorld.<anonymous> (D:\\NewProject\\AT-Test\\cucumber-selenium-autotests\\src\\step_definitions\\ui\\text-elements-steps.ts:11:5)"
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "Click \"log in\" button",
+            "match": {
+              "location": "src\\step_definitions\\ui\\click-steps.ts:8"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "Wait \"1s\"",
+            "match": {
+              "location": "src\\step_definitions\\core\\wait-steps.ts:4"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "all ok",
+            "match": {
+              "location": "src\\step_definitions\\core\\stub-steps.ts:10"
+            },
+            "result": {
+              "status": "skipped",
+              "duration": 0
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 288123899
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 72200
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only",
+            "line": 9
+          },
+          {
+            "name": "@debug",
+            "line": 9
+          }
+        ],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login-test-feature;login-test-3",
+        "keyword": "Scenario",
+        "line": 19,
+        "name": "Login test 3",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 231299
+            }
+          },
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 863560699
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 20,
+            "name": "Opened \"Public\" page",
+            "match": {
+              "location": "src\\step_definitions\\core\\page-steps.ts:5"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2902877300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "nothing",
+            "match": {
+              "location": "src\\step_definitions\\core\\stub-steps.ts:6"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 100300
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 22,
+            "name": "all ok",
+            "match": {
+              "location": "src\\step_definitions\\core\\stub-steps.ts:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 541100
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 276028500
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 118499
+            }
+          }
+        ],
+        "tags": [
+          {
+            "name": "@only",
+            "line": 18
+          }
+        ],
+        "type": "scenario"
+      }
+    ],
+    "id": "login-test-feature",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login Test Feature",
+    "tags": [],
+    "uri": "features\\login-test.feature"
+  }
+]
