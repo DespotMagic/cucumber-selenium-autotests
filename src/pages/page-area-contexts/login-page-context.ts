@@ -1,8 +1,10 @@
-import { PageAreaContext, PageAreaContextParams, PageElement } from '../../models/pages.model';
+import { PageAreaContext, PageAreaContextParams } from '../../models/pages.model';
+import { PageElement } from '../../models/page-element.model';
 import { IPageLoading } from '../../core/context-interfaces';
-import { By, until, WebDriver } from 'selenium-webdriver';
+import { BasePageContext } from '../base-page-context';
+import { By, until } from 'selenium-webdriver';
 
-export class LoginPageContext implements PageAreaContext, IPageLoading {
+export class LoginPageContext extends BasePageContext implements PageAreaContext, IPageLoading {
     areaSelector = By.css('body');
     elements: PageElement[] = [
         {
@@ -13,14 +15,19 @@ export class LoginPageContext implements PageAreaContext, IPageLoading {
             name: 'password',
             selector: By.name('password'),
         },
+        {
+            name: 'log in',
+            selector: By.css('button[name=submit]'),
+        },
     ];
 
-    private driver: WebDriver;
+    constructor() {
+        super();
+    }
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     init(params: PageAreaContextParams): void {
-        //init
-        this.driver = params.getDriver();
+        super.init(params);
     }
 
     async waitPageLoading(): Promise<void> {
@@ -28,6 +35,5 @@ export class LoginPageContext implements PageAreaContext, IPageLoading {
         await this.driver.sleep(1000);
         const element = await this.driver.wait(until.elementLocated(emailSelector), 10000);
         await this.driver.wait(until.elementIsVisible(element), 3000);
-        console.log('custom waitPageLoading 2');
     }
 }

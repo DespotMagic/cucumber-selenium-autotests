@@ -1,7 +1,9 @@
-import { PageAreaContext, PageAreaContextParams, PageElement } from '../../models/pages.model';
+import { PageAreaContext, PageAreaContextParams } from '../../models/pages.model';
+import { PageElement } from '../../models/page-element.model';
+import { BasePageContext } from '../base-page-context';
 import { By } from 'selenium-webdriver';
 
-export class PublicPageContext implements PageAreaContext {
+export class PublicPageContext extends BasePageContext implements PageAreaContext {
     areaSelector = By.css('body');
     elements: PageElement[] = [
         {
@@ -11,14 +13,10 @@ export class PublicPageContext implements PageAreaContext {
     ];
 
     constructor() {
-        //constructor
+        super();
     }
 
     init(params: PageAreaContextParams): void {
-        //init
-    }
-
-    getPageElement(name: string): PageElement {
-        return this.elements.find((item) => item.name === name);
+        super.init(params);
     }
 }

@@ -1,6 +1,7 @@
 import { getPageDescriptorByName } from './pages';
 import { PageArea, PageAreaContextParams, PageAreaDescriptor } from '../models/pages.model';
-import { DefaultPageContext } from '../pages/default-page-context';
+import { BasePageContext } from '../pages/base-page-context';
+import { createPageAreaContext } from '../helpers/page-context-helper';
 
 export class PageContextFactory {
     private params: PageAreaContextParams;
@@ -14,11 +15,11 @@ export class PageContextFactory {
     }
 
     private createDefaultContext() {
-        return new DefaultPageContext();
+        return createPageAreaContext(BasePageContext, this.params);
     }
 
     createPageContextInstanceByName(pageName: PageArea | string) {
         const pageDescriptor = getPageDescriptorByName(pageName);
-        return this.createPageContextInstance(pageDescriptor);
+        return pageDescriptor ? this.createPageContextInstance(pageDescriptor) : null;
     }
 }

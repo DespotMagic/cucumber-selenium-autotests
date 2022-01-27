@@ -1,3 +1,4 @@
+import { PageElement } from './page-element.model';
 import { By, WebDriver } from 'selenium-webdriver';
 
 export const domain = 'https://www.google.com/';
@@ -20,12 +21,15 @@ export class PageAreaDescriptor {
 
 type ContextFactory<T extends PageAreaContextParams = PageAreaContextParams> = (params: T) => PageAreaContext;
 
-export interface PageAreaContext<T extends PageAreaContextParams = PageAreaContextParams> {
+export interface BasePageAreaContext<T extends PageAreaContextParams = PageAreaContextParams> {
     readonly areaSelector: By;
     readonly elements: PageElement[];
-
+    getPageElement(name: string): PageElement;
     init(params: T): void;
-    //getPageElement(name: string): PageElement;
+}
+// eslint-disable-next-line @typescript-eslint/no-empty-interface
+export interface PageAreaContext<T extends PageAreaContextParams = PageAreaContextParams> extends BasePageAreaContext<T> {
+    //todo...
 }
 
 export interface PageAreaContextParams {
@@ -33,11 +37,6 @@ export interface PageAreaContextParams {
 }
 
 export interface PageAreaContextConstructor<T extends PageAreaContextParams = PageAreaContextParams> {
-    new (params?: T): PageAreaContext;
-}
-
-export interface PageElement {
-    name: string;
-    selector: By;
-    type?: unknown;
+    // eslint-disable-next-line prettier/prettier
+    new(params?: T): PageAreaContext;
 }

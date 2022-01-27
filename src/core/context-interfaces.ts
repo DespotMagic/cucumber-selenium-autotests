@@ -1,7 +1,8 @@
-import { PageElement } from '../models/pages.model';
+import { PageElement } from '../models/page-element.model';
+import { By } from 'selenium-webdriver';
 
 export interface IClickElement {
-    click(element: PageElement): Promise<void>;
+    click(selector: By, element?: PageElement): Promise<void>;
 }
 
 export interface IPageLoading {
