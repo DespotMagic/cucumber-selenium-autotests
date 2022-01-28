@@ -2,7 +2,8 @@
 build
 
 #artifacts
-reports/report.html
+reports/*.*
+!reports/README.md
 
 #debug data
 debug-console-formatter
