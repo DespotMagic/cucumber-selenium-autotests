@@ -12,7 +12,7 @@ var defaultParams = commonArrayParams.concat(['--format progress-bar']).join(' '
 
 var ciParams = commonArrayParams.concat([]).join(' ');
 
-var checkParams = commonArrayParams.concat([' --format summary']).join(' ');
+var checkParams = commonArrayParams.concat(['--format summary']).join(' ');
 
 var debugParams = commonArrayParams.concat(['--tags @debug', ' --format cucumber-console-formatter']).join(' ');
 
@@ -25,7 +25,7 @@ var tagOnlyParams = commonArrayParams
     .join(' ');
 
 var quickRunParams = commonArrayParams
-    .concat(['--format cucumber-console-formatter', '--format-options \'{ "colorsEnabled": false }\''])
+    .concat(['--format cucumber-console-formatter', '--format-options \'{ "colorsEnabled": false }\'', '-f html:reports/quickRun_report.html'])
     .join(' ');
 
 module.exports = {

@@ -12,10 +12,6 @@ export class PublicPageContext extends BasePageContext implements PageAreaContex
         },
     ];
 
-    constructor() {
-        super();
-    }
-
     init(params: PageAreaContextParams): void {
         super.init(params);
     }

@@ -40,5 +40,6 @@ async function waitPageLoading(driver: WebDriver, pageContext: PageAreaContext |
 }
 
 async function defaultWaitPageLoading(driver: WebDriver) {
+    //TODO: implement Wait Page Loading rules
     await driver.sleep(1000);
 }

@@ -10,6 +10,7 @@ export class LoginPageContext extends BasePageContext implements PageAreaContext
         {
             name: 'email',
             selector: By.name('email'),
+            type: 'input',
         },
         {
             name: 'password',
@@ -18,6 +19,7 @@ export class LoginPageContext extends BasePageContext implements PageAreaContext
         {
             name: 'log in',
             selector: By.css('button[name=submit]'),
+            type: 'button',
         },
     ];
 
