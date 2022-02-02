@@ -27,6 +27,7 @@ async function click(driver: WebDriver, pageContext: PageAreaContext, elementNam
 }
 
 async function defaultClick(driver: WebDriver, selector: By) {
+
     const element = await driver.findElement(selector);
     await driver.wait(until.elementIsVisible(element), 1000);
     await element.click();

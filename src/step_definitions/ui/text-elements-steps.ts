@@ -15,5 +15,5 @@ async function enterTextToField(world: CustomWorld, pageContext: PageAreaContext
     const pageElement = pageContext.getPageElement(elementName);
     const selector = pageElement?.selector ?? generateDefaultSelector(elementName);
     const textElement = await world.driver.findElement(selector);
-    textElement.sendKeys(text);
+    await textElement.sendKeys(text);
 }

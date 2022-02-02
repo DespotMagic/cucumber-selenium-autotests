@@ -1,7 +1,7 @@
 import { getPageDescriptorByName } from './pages';
 import { PageArea, PageAreaContextParams, PageAreaDescriptor } from '../models/pages.model';
 import { BasePageContext } from '../pages/base-page-context';
-import { createPageAreaContext } from '../helpers/page-context-helper';
+import { createPageAreaContext } from '../helpers/page-context.helper';
 
 export class PageContextFactory {
     private params: PageAreaContextParams;

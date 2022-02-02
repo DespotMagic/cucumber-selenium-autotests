@@ -12,7 +12,6 @@ Feature: Is it Friday yet?
     When I ask whether it is Friday yet
     Then I should be told "TGIF"
 
-  @debug
   Scenario Outline: Today is or is not Friday
     Given Today is "<day>"
     When I ask whether it is Friday yet

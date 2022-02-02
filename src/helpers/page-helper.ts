@@ -2,7 +2,7 @@ import { PageAreaContext, PageAreaDescriptor } from '../models/pages.model';
 import { CustomWorld } from '../world';
 import { IPageLoading } from '../core/context-interfaces';
 import { getPageDescriptorByName } from '../core/pages';
-import { WebDriver } from 'selenium-webdriver';
+import { By, until, WebDriver, WebElement } from 'selenium-webdriver';
 import config from 'config';
 
 export function getUrlFromPageDescriptor(page: PageAreaDescriptor): string {
@@ -40,6 +40,10 @@ async function waitPageLoading(driver: WebDriver, pageContext: PageAreaContext |
 }
 
 async function defaultWaitPageLoading(driver: WebDriver) {
-    //TODO: implement Wait Page Loading rules
-    await driver.sleep(1000);
+    //TODO: implement default Wait Page Loading rules
+    await driver.wait(until.elementLocated(By.css('body')));
+}
+
+export function scrollToElement(driver: WebDriver, element: WebElement) {
+    return driver.executeScript('return arguments[0].scrollIntoView(false);', element);
 }

@@ -1,10 +1,10 @@
-import { FeatureContext } from './feature-context';
 import { createChromeDriver } from '../helpers/drivers/chrome-driver';
 import { FeatureTag } from '../models/tags.model';
 import { containTag, featureContainTag, sleep } from '../helpers/helpers';
 import { PageAreaContextParams } from '../models/pages.model';
 import { PageContextManager } from '../core/page-context-manager';
 import { PageContextFactory } from '../core/page-context-factory';
+import { FeatureContext } from '../core/feature-context';
 import { After, AfterAll, Before, ITestCaseHookParameter, IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
 import { WebDriver } from 'selenium-webdriver';
 import config from 'config';
@@ -45,40 +45,40 @@ export class CustomWorld<TScenarioContext = CommonScenarioPayloadContext> extend
     }
 }
 
-Before<CustomWorld>(async function (this, arg) {
-    const isNewFeature = featureContext.isNewFeature(arg);
+Before<CustomWorld>(async function (this, testCase) {
+    const isNewFeature = featureContext.isNewFeature(testCase);
 
     if (isNewFeature) {
-        featureContext.init(arg);
+        featureContext.init(testCase);
     }
 
-    this.tags = arg.pickle.tags.map((tag) => tag.name);
+    this.tags = testCase.pickle.tags.map((tag) => tag.name);
 
-    await initDriver(arg, isNewFeature);
+    await initDriver(testCase, isNewFeature);
 });
 
-After<CustomWorld>(async function (this, arg) {
-    await closeOrCleanBrowser(arg);
+After<CustomWorld>(async function (this, testCase) {
+    await closeOrCleanBrowser(testCase);
 });
 
 AfterAll(async function () {
     await closeBrowser();
 });
 
-async function initDriver(arg: ITestCaseHookParameter, isNewFeature: boolean) {
+async function initDriver(testCase: ITestCaseHookParameter, isNewFeature: boolean) {
     if (isNewFeature && !!globalDriver) {
         //close Browser befor new feature
         await closeBrowser();
     }
 
-    if (!globalDriver && !containTag(arg, FeatureTag.dontCreateBrowser)) {
+    if (!globalDriver && !containTag(testCase, FeatureTag.dontCreateBrowser)) {
         const isHeadless = config.get<string>('headless') === 'true';
         globalDriver = await createChromeDriver(isHeadless);
     }
 }
 
-async function closeOrCleanBrowser(arg: ITestCaseHookParameter) {
-    if (isRequiredToRestartTheDriverInEveryScenario(arg)) {
+async function closeOrCleanBrowser(testCase: ITestCaseHookParameter) {
+    if (isRequiredToRestartTheDriverInEveryScenario(testCase)) {
         await closeBrowser();
     } else {
         //clenup browser ?
@@ -95,8 +95,8 @@ async function closeBrowser() {
     }
 }
 
-function isRequiredToRestartTheDriverInEveryScenario(arg: ITestCaseHookParameter) {
-    return featureContainTag(arg, FeatureTag.restartBrowserEveryScenario);
+function isRequiredToRestartTheDriverInEveryScenario(testCase: ITestCaseHookParameter) {
+    return featureContainTag(testCase, FeatureTag.restartBrowserEveryScenario);
 }
 
 setWorldConstructor(CustomWorld);

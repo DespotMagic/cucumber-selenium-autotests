@@ -122,7 +122,7 @@
 
 "@cucumber/html-formatter@^18.0.0":
   version "18.0.0"
-  resolved "https://registry.yarnpkg.com/@cucumber/html-formatter/-/html-formatter-18.0.0.tgz#39013f71a1327a30284a7ebc43741a95f84d7232"
+  resolved "https://registry.npmjs.org/@cucumber/html-formatter/-/html-formatter-18.0.0.tgz"
   integrity sha512-GM9Nlob24JlUu5Nv6LZjOBbvptH4JatfXbime9T1Q4TIW2X3PxHtYC3NhoavCFJaenpjhTJsydua/dnbNFPtqw==
   dependencies:
     "@cucumber/messages" "^17.1.1"
@@ -249,6 +249,14 @@
   resolved "https://registry.npmjs.org/@types/config/-/config-0.0.41.tgz"
   integrity sha512-HjXUmIld0gwvyG8MU/17QtLzOyuMX4jbGuijmS9sWsob5xxgZ/hY9cbRCaHIHqTQ3HMLhwS3F8uXq3Bt9zgzHA==
 
+"@types/glob@*":
+  version "7.2.0"
+  resolved "https://registry.npmjs.org/@types/glob/-/glob-7.2.0.tgz"
+  integrity sha512-ZUxbzKl0IfJILTS6t7ip5fQQM/J3TJYubDm3nMbgubNNYS62eXeUpoLUC8/7fJNiFYHTrGPQn7hspDUzIHX3UA==
+  dependencies:
+    "@types/minimatch" "*"
+    "@types/node" "*"
+
 "@types/is-ci@^3.0.0":
   version "3.0.0"
   resolved "https://registry.npmjs.org/@types/is-ci/-/is-ci-3.0.0.tgz"
@@ -290,10 +298,23 @@
   resolved "https://registry.npmjs.org/@types/lodash/-/lodash-4.14.167.tgz"
   integrity sha512-w7tQPjARrvdeBkX/Rwg95S592JwxqOjmms3zWQ0XZgSyxSLdzWaYH3vErBhdVS/lRBX7F8aBYcYJYTr5TMGOzw==
 
+"@types/minimatch@*":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@types/minimatch/-/minimatch-3.0.5.tgz"
+  integrity sha512-Klz949h02Gz2uZCMGwDUSDS1YBlTdDDgbWHi+81l29tQALUtvz4rAYi5uoVhE5Lagoq6DeqAUlbrHvW/mXDgdQ==
+
 "@types/node@*", "@types/node@^15.0.0":
   version "15.14.9"
   resolved "https://registry.npmjs.org/@types/node/-/node-15.14.9.tgz"
   integrity sha512-qjd88DrCxupx/kJD5yQgZdcYKZKSIGBVDIBE1/LTGcNm3d2Np/jxojkdePDdfnBHJc5W7vSMpbJ1aB7p/Py69A==
+
+"@types/rimraf@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/@types/rimraf/-/rimraf-3.0.2.tgz"
+  integrity sha512-F3OznnSLAUxFrCEu/L5PY8+ny8DtcFRjx7fZZ9bycvXRi3KPTRS9HOitGZwvPg0juRhXFWIeKX58cnX5YqLohQ==
+  dependencies:
+    "@types/glob" "*"
+    "@types/node" "*"
 
 "@types/selenium-webdriver@^4.0.16":
   version "4.0.16"
@@ -578,7 +599,7 @@ capital-case@^1.0.4:
 
 cat@^0.2.0:
   version "0.2.0"
-  resolved "https://registry.yarnpkg.com/cat/-/cat-0.2.0.tgz#fd850cda7d4162e6904f33b7fcf743b1243fd434"
+  resolved "https://registry.npmjs.org/cat/-/cat-0.2.0.tgz"
   integrity sha1-/YUM2n1BYuaQTzO3/PdDsSQ/1DQ=
 
 chalk@^2.0.0, chalk@^2.4.2:
@@ -2200,7 +2221,7 @@ source-map-support@0.5.19:
 
 source-map-support@0.5.21:
   version "0.5.21"
-  resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.21.tgz#04fe7c7f9e1ed2d662233c28cb2b35b9f63f6e4f"
+  resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.21.tgz"
   integrity sha512-uBHU3L3czsIyYXKX88fdrGovxdSCoTGDRZ6SYXtSRxLZUzHg5P/66Ht6uoUlHu9EZod+inXhKo3qQgwXUT/y1w==
   dependencies:
     buffer-from "^1.0.0"
@@ -2482,7 +2503,7 @@ util-deprecate@~1.0.1:
   resolved "https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz"
   integrity sha1-RQ1Nyfpw3nMnYvvS1KKJgUGaDM8=
 
-uuid@8.3.2:
+uuid@8.3.2, uuid@^8.3.2:
   version "8.3.2"
   resolved "https://registry.npmjs.org/uuid/-/uuid-8.3.2.tgz"
   integrity sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==

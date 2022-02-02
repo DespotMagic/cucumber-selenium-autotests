@@ -4,6 +4,8 @@ build
 #artifacts
 reports/*.*
 !reports/README.md
+screenshots/*.*
+!screenshots/README.md
 
 #debug data
 debug-console-formatter

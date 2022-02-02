@@ -5,8 +5,20 @@ import expect from 'expect';
 
 Given('nothing', function () {});
 
-When('nothing happand', function () {});
+When('nothing happened', function () {});
 
 Then('all ok', function () {
     expect(true).toBe(true);
+});
+
+Given('error', function () {
+    throw new Error('stub error');
+});
+
+When('error happened', function () {
+    throw new Error('stub error');
+});
+
+Then('all error', function () {
+    throw new Error('stub all error');
 });

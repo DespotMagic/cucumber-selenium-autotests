@@ -1,7 +1,7 @@
 import { PublicPageContext } from '../pages/page-area-contexts/public-page-conext';
 import { PageArea, PageAreaDescriptor } from '../models/pages.model';
 import { LoginPageContext } from '../pages/page-area-contexts/login-page-context';
-import { createPageAreaContext } from '../helpers/page-context-helper';
+import { createPageAreaContext } from '../helpers/page-context.helper';
 
 export function getPageDescriptorByName(name: PageArea | string) {
     return pages.find((item) => item.pageArea === name) ?? null;
