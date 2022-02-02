@@ -1,4 +1,5 @@
-@only @restartBrowserEveryScenario
+# @restartBrowserEveryScenario
+@only
 Feature: Roko Dev Test Feature copy
 
     Scenario: Open public page 1 copy

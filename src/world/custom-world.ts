@@ -7,6 +7,7 @@ import { PageContextManager } from '../core/page-context-manager';
 import { PageContextFactory } from '../core/page-context-factory';
 import { After, AfterAll, Before, ITestCaseHookParameter, IWorldOptions, setWorldConstructor, World } from '@cucumber/cucumber';
 import { WebDriver } from 'selenium-webdriver';
+import config from 'config';
 
 type CommonScenarioPayloadContext = { [key: string]: string };
 
@@ -71,7 +72,8 @@ async function initDriver(arg: ITestCaseHookParameter, isNewFeature: boolean) {
     }
 
     if (!globalDriver && !containTag(arg, FeatureTag.dontCreateBrowser)) {
-        globalDriver = await createChromeDriver();
+        const isHeadless = config.get<string>('headless') === 'true';
+        globalDriver = await createChromeDriver(isHeadless);
     }
 }
 
@@ -79,9 +81,9 @@ async function closeOrCleanBrowser(arg: ITestCaseHookParameter) {
     if (isRequiredToRestartTheDriverInEveryScenario(arg)) {
         await closeBrowser();
     } else {
-        //TODO: clenup browser
+        //clenup browser ?
         //await globalDriver.manage().deleteAllCookies();
-        await sleep(1000);
+        await sleep(500);
     }
 }
 

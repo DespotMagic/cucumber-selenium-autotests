@@ -1,8 +1,5 @@
 {
     "marketingSite": "https://app-dev.rockportval.com",
-    "applicationDomain": "https://app-dev.rockportval.com", 
-    "headless": "false",
-    "test2": {
-        "a1": "a1"
-    }
+    "applicationDomain": "https://app-dev.rockportval.com",
+    "headless": "true"
 }
