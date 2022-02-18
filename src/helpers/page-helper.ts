@@ -9,7 +9,7 @@ export function getUrlFromPageDescriptor(page: PageAreaDescriptor): string {
     if (page.isFullUrl) {
         return page.pageUrlFormat;
     } else {
-        const domain = config.get('applicationDomain');
+        const domain = config.get('domain');
         return domain + page.pageUrlFormat;
     }
 }

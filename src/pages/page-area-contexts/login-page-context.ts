@@ -8,17 +8,18 @@ export class LoginPageContext extends BasePageContext implements PageAreaContext
     areaSelector = By.css('body');
     elements: PageElement[] = [
         {
-            name: 'email',
-            selector: By.name('email'),
+            name: 'Username',
+            selector: By.id('login_field'),
             type: 'input',
         },
         {
-            name: 'password',
-            selector: By.name('password'),
+            name: 'Password',
+            selector: By.id('password'),
+            type: 'input',
         },
         {
-            name: 'log in',
-            selector: By.css('button[name=submit]'),
+            name: 'Sign in',
+            selector: By.css('input[type=submit]'),
             type: 'button',
         },
     ];
@@ -33,7 +34,7 @@ export class LoginPageContext extends BasePageContext implements PageAreaContext
     }
 
     async waitPageLoading(): Promise<void> {
-        const emailSelector = By.name('email');
+        const emailSelector = By.id('login_field');
         await this.driver.sleep(1000);
         const element = await this.driver.wait(until.elementLocated(emailSelector), 10000);
         await this.driver.wait(until.elementIsVisible(element), 3000);

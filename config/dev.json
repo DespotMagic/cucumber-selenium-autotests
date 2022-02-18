@@ -1,5 +1,4 @@
 {
-    "marketingSite": "https://app-dev.rockportval.com",
-    "applicationDomain": "https://app-dev.rockportval.com",
+    "domain": "https://github.com",
     "headless": "true"
 }

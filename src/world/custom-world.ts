@@ -81,7 +81,7 @@ async function closeOrCleanBrowser(testCase: ITestCaseHookParameter) {
     if (isRequiredToRestartTheDriverInEveryScenario(testCase)) {
         await closeBrowser();
     } else {
-        //clenup browser ?
+        //clenup browser ???
         //await globalDriver.manage().deleteAllCookies();
         await sleep(500);
     }

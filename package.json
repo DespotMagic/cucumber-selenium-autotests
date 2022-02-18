@@ -29,7 +29,7 @@
     "@cucumber/cucumber": "^8.0.0-rc.1",
     "@cucumber/html-formatter": "^18.0.0",
     "cat": "^0.2.0",
-    "chromedriver": "^96.0.0",
+    "chromedriver": "^98.0.1",
     "config": "^3.3.7",
     "cucumber-console-formatter": "^1.0.0",
     "cucumber-html-reporter": "^5.5.0",

@@ -6,9 +6,9 @@ export const domain = 'https://www.google.com/';
 export enum PageArea {
     Public = 'Public',
     Login = 'Login',
-    PropertiesMy = 'PropertiesMy',
-    PropertiesCompany = 'PropertiesCompany',
-    PropertyCreate = 'PropertyCreate',
+    PullRequests = 'Pull Requests',
+    Issues = 'Issues',
+    Profile = 'Profile',
 }
 
 export class PageAreaDescriptor {
@@ -38,5 +38,5 @@ export interface PageAreaContextParams {
 
 export interface PageAreaContextConstructor<T extends PageAreaContextParams = PageAreaContextParams> {
     // eslint-disable-next-line prettier/prettier
-    new(params?: T): PageAreaContext;
+    new (params?: T): PageAreaContext;
 }
