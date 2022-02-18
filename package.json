@@ -5,13 +5,19 @@
   "main": "index.js",
   "scripts": {
     "build": "rimraf build && tsc",
+    "watch": "rimraf build && tsc --watch",
     "cucumber-check": "cucumber-js --dry-run -p checkParams",
     "test-all": "yarn run cucumber-js",
     "test-only": "yarn run cucumber-js -p onlyParams",
     "test": "yarn run test-all",
     "ci": "yarn run build && yarn run cucumber-js -p ciParams",
     "eslint-lint": "eslint ./ --ext .js,.ts --format visualstudio --no-color --max-warnings 10 --report-unused-disable-directives",
-    "eslint-fix": "eslint ./ --ext .js,.ts --fix"
+    "eslint-fix": "eslint ./ --ext .js,.ts --fix",
+    "test-dev": "set NODE_ENV=dev&& yarn run test-all",
+    "test-qa": "set NODE_ENV=qa&& yarn run test-all",
+    "report-view_report": "reports/build_in_report.html",
+    "report-generate_report_from_json": "node generateHtmlReport.js",
+    "report-generate_report_from_ndjson": "cat reports/cucumber-messages.ndjson | cucumber-html-formatter > reports/ndjson_reports.html"
   },
   "engines": {
     "node": ">=14"
@@ -21,26 +27,33 @@
   "author": "levin-sa",
   "dependencies": {
     "@cucumber/cucumber": "^8.0.0-rc.1",
-    "@cucumber/html-formatter": "^17.0.0",
-    "chromedriver": "^96.0.0",
+    "@cucumber/html-formatter": "^18.0.0",
+    "cat": "^0.2.0",
+    "chromedriver": "^98.0.1",
+    "config": "^3.3.7",
     "cucumber-console-formatter": "^1.0.0",
+    "cucumber-html-reporter": "^5.5.0",
     "expect": "26.6.2",
     "is-ci": "^3.0.1",
     "rimraf": "^3.0.2",
     "selenium-webdriver": "^4.1.0",
     "ts-node": "^10.4.0",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/chromedriver": "^81.0.1",
+    "@types/config": "^0.0.41",
     "@types/is-ci": "^3.0.0",
     "@types/node": "^15.0.0",
+    "@types/rimraf": "^3.0.2",
     "@types/selenium-webdriver": "^4.0.16",
     "@typescript-eslint/eslint-plugin": "^5.8.1",
     "@typescript-eslint/parser": "^5.8.1",
     "eslint": "^8.5.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-prettier": "^4.0.0",
     "prettier": "^2.5.1"
   }

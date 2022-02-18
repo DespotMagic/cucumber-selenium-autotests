@@ -1,30 +1,31 @@
+/* eslint-disable prettier/prettier */
 var commonArrayParams = [
     '--require-module ts-node/register',
-    '--require env/set-environment-variables.ts',
     '--require src/**/*.ts',
-    '--format-options \'{ "snippetInterface": "synchronous" }\'',
+    '--format-options \'{ "snippetInterface": "async-await" }\'',
     '--publish-quiet',
+    '-f json:reports/cucumber_report.json', // Note: this formatter is deprecated and will be removed in the next major release.
+    '-f message:reports/cucumber-messages.ndjson'
 ];
 
 var defaultParams = commonArrayParams.concat(['--format progress-bar']).join(' ');
 
-var ciParams = commonArrayParams.concat(['--format progress']).join(' ');
+var ciParams = commonArrayParams.concat([]).join(' ');
 
-var checkParams = commonArrayParams.concat([' --format summary']).join(' ');
+var checkParams = commonArrayParams.concat(['--format summary']).join(' ');
 
-var debugParams = commonArrayParams
-    .concat(['--tags @debug', ' --format cucumber-console-formatter'])
-    .join(' ');
+var debugParams = commonArrayParams.concat(['--tags @debug', ' --format cucumber-console-formatter']).join(' ');
 
 var tagOnlyParams = commonArrayParams
-    .concat(['--tags @only', ' --format cucumber-console-formatter'])
+    .concat([
+        '--tags @only',
+        ' --format cucumber-console-formatter',
+        ' -f html:reports/build_in_report.html'
+    ])
     .join(' ');
 
 var quickRunParams = commonArrayParams
-    .concat([
-        '--format cucumber-console-formatter',
-        '--format-options \'{ "colorsEnabled": false }\'',
-    ])
+    .concat(['--format cucumber-console-formatter', '--format-options \'{ "colorsEnabled": false }\'', '-f html:reports/quickRun_report.html'])
     .join(' ');
 
 module.exports = {
@@ -41,6 +42,7 @@ module.exports = {
     /**quickRun used in cucumber-quick plugin. See .vscode/settings.json */
     quickRun: quickRunParams,
 };
+
 // '--format json:./reports/cucumber-json-reports/report.json',
 //'--require step_definitions/**/*.ts',
 //'--require hooks/**/*.ts',

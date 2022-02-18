@@ -10,11 +10,11 @@ function isItFriday(today: string) {
     }
 }
 
-Given('today is {string}', function (this: CustomWorld, day: string) {
+Given('Today is {string}', function (this: CustomWorld, day: string) {
     this.scenarioContext.today = day;
 });
 
-When("I ask whether it's Friday yet", function (this: CustomWorld) {
+When('I ask whether it is Friday yet', function (this: CustomWorld) {
     this.scenarioContext.actualAnswer = isItFriday(this.scenarioContext.today);
 });
 
